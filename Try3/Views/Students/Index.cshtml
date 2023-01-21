@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Try3.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.studentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.studentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.majorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.birthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department.departmentName)  <!--What is shown? the dep name instead of Dep id --->
+            </th>
+            <th>
+                Events
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.studentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.studentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.majorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.birthDate)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Department.departmentName)  <!--What is shown? the dep name instead of Dep id --->
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.studentId  }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.studentId },
+                    new{onclick="return confirm('Are you sure that you want to delete it ?')" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

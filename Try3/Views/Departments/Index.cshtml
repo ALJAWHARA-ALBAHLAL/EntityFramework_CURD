@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Try3.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.departmentId) <!--put headers names in table -->
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.departmentName)  <!--put headers names in table -->
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {   <!--put values in table -->
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.departmentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.departmentName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) | @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
