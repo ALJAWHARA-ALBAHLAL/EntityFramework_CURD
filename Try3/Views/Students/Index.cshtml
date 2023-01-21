@@ -53,7 +53,7 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.studentId  }) |
                     @Html.ActionLink("Delete", "Delete", new { id=item.studentId },
-                    new{onclick="return confirm('Are you sure that you want to delete it ?')" })
+                new{onclick="return confirm('Are you sure that you want to delete it ?')" }) <!-- After deleting, confirm msg is shown--->
             </td>
         </tr>
 }
