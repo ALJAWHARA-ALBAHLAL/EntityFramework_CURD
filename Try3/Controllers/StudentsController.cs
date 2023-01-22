@@ -14,7 +14,7 @@ namespace Try3.Controllers
         {
             _conext = context;
         }
-
+        //GET: Student
         public IActionResult Index()
         {
             var result = _conext.Student.Include(x=> x.Department)
@@ -22,7 +22,7 @@ namespace Try3.Controllers
                                         .ToList();
             return View(result);
         }
-
+        //GET: Student
         public IActionResult Create() // To go to Create page
         {
             ViewBag.Department = _conext.Department.OrderBy(x => x.departmentName)
@@ -45,7 +45,7 @@ namespace Try3.Controllers
             return View();
         }
 
-     
+        //GET: Student
         public IActionResult Edit(int? Id) 
         {
             ViewBag.Department = _conext.Department.OrderBy(x => x.departmentName)
@@ -71,7 +71,7 @@ namespace Try3.Controllers
             return View(model);
         }
 
-
+        //GET: Student
         public IActionResult Delete(int? Id) 
         {
             var Result = _conext.Student.Find(Id);
